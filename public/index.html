@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container" id="createContainer">
+    <form>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" placeholder="name" id="name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="meetingId">Meeting id</label>
+        <input type="text" class="form-control" placeholder="meeting id" id="meetingId" required>
+      </div>
+
+      <input type="submit" value="Submit" class="btn btn-primary" id="createButton">
+    </form>
+  </div>
+
+  <div id="flow-meeting" class="container"
+    style="position:absolute;left:15px;right:15px;padding:10;background-color: aqua;">
+    <audio id="meeting-audio" style="display:none"></audio>
+  </div>
+
+  <script src="./bundle.js"></script>
+</body>
+
+</html>
