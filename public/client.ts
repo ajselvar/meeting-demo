@@ -11,6 +11,7 @@ import {
 
 const logger = new ConsoleLogger('MyLogger', LogLevel.INFO);
 const deviceController = new DefaultDeviceController(logger);
+const baseUrl = [location.protocol, '//', location.host, location.pathname.replace(/\/*$/, '/').replace('/v2', '')].join('');
 
 let meetingConfiguration: MeetingSessionConfiguration | null = null;
 let meetingResponse = null;
@@ -66,14 +67,12 @@ window.onload = function () {
       return;
     }
 
-    const response = await fetch('https://192.168.68.113:8443/meetings', {
-      method: 'post',
-      body: JSON.stringify({
-        userName: userName,
-        meetingName: meetingName,
-      }),
-      headers: { 'Content-Type': 'application/json' }
-    });
+    const response = await fetch(
+      `${baseUrl}join?title=${encodeURIComponent(meetingName)}&name=${encodeURIComponent(userName)}`,
+      {
+        method: 'POST',
+      }
+    );
 
     meetingResponse = await response.json();
     console.log(meetingResponse);

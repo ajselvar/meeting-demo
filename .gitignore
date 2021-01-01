@@ -104,3 +104,6 @@ dist
 .tern-port
 cert
 build
+src/aws-sdk
+src/uuid
+src/index.html
