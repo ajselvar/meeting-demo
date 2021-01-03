@@ -28,9 +28,129 @@
     </form>
   </div>
 
-  <div id="flow-meeting" class="container"
+  <!-- <div id="flow-meeting" class="container"
     style="position:absolute;left:15px;right:15px;padding:10;background-color: aqua;display:none;">
     <audio id="meeting-audio" style="display:none"></audio>
+  </div> -->
+
+  <div id="flow-meeting" class="flow" style="position:absolute;left:0;top:0;bottom:55px;right:0;display:none">
+
+    <audio id="meeting-audio" style="display:none"></audio>
+
+    <div id="meeting-container" class="container-fluid h-100" style="display:flex; flex-flow:column">
+      <div class="row mb-3 mb-lg-0" style="flex: unset;">
+        <div class="col-8 col-lg-6 order-2 order-lg-2 text-left text-lg-center">
+          <div class="btn-group mx-1 mx-xl-2 my-2" role="group" aria-label="Toggle microphone">
+            <button id="button-microphone" type="button" class="btn btn-success" title="Toggle microphone">
+              ${require('../node_modules/open-iconic/svg/microphone.svg').default}
+            </button>
+            <div class="btn-group" role="group">
+              <button id="button-microphone-drop" type="button" class="btn btn-success dropdown-toggle"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Select microphone"></button>
+              <div id="dropdown-menu-microphone" class="dropdown-menu dropdown-menu-right"
+                aria-labelledby="button-microphone-drop" x-placement="bottom-start"
+                style="position: absolute; transform: translate3d(0px, 38px, 0px); top: 0px; left: 0px; will-change: transform;">
+                <a class="dropdown-item" href="#">Default microphone</a>
+              </div>
+            </div>
+          </div>
+          <div class="btn-group mx-1 mx-xl-2 my-2" role="group" aria-label="Toggle camera">
+            <button id="button-camera" type="button" class="btn btn-success" title="Toggle camera">
+              ${require('../node_modules/open-iconic/svg/video.svg').default}
+            </button>
+            <div class="btn-group" role="group">
+              <button id="button-camera-drop" type="button" class="btn btn-success dropdown-toggle"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Select camera"></button>
+              <div id="dropdown-menu-camera" class="dropdown-menu dropdown-menu-right"
+                aria-labelledby="button-camera-drop" x-placement="bottom-start"
+                style="position: absolute; transform: translate3d(0px, 38px, 0px); top: 0px; left: 0px; will-change: transform;">
+                <a class="dropdown-item" href="#">Default camera</a>
+              </div>
+            </div>
+          </div>
+          <div class="btn-group mx-1 mx-xl-2 my-2" role="group" aria-label="Toggle content share">
+            <button id="button-content-share" type="button" class="btn btn-success" title="Toggle content share">
+              ${require('../node_modules/open-iconic/svg/camera-slr.svg').default}
+            </button>
+            <div class="btn-group" role="group">
+              <button id="button-content-share-drop" type="button" class="btn btn-success dropdown-toggle"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                title="Select content to share"></button>
+              <div id="dropdown-menu-content-share" class="dropdown-menu dropdown-menu-right"
+                aria-labelledby="button-content-share-drop" x-placement="bottom-start"
+                style="position: absolute; transform: translate3d(0px, 38px, 0px); top: 0px; left: 0px; will-change: transform;">
+                <a id="dropdown-item-content-share-screen-capture" class="dropdown-item" href="#">Screen Capture...</a>
+                <a id="dropdown-item-content-share-screen-test-video" class="dropdown-item" href="#">Test Video</a>
+                <a id="dropdown-item-content-share-file-item" class="dropdown-item" href="#"><input
+                    id="content-share-item" type="file"></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="btn-group mx-1 mx-xl-2 my-2" role="group" aria-label="Toggle speaker">
+            <button id="button-speaker" type="button" class="btn btn-success" title="Toggle speaker">
+              ${require('../node_modules/open-iconic/svg/volume-low.svg').default}
+            </button>
+            <div class="btn-group" role="group">
+              <button id="button-speaker-drop" type="button" class="btn btn-success dropdown-toggle"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Select speaker"></button>
+              <div id="dropdown-menu-speaker" class="dropdown-menu dropdown-menu-right"
+                aria-labelledby="button-speaker-drop" x-placement="bottom-start"
+                style="position: absolute; transform: translate3d(0px, 38px, 0px); top: 0px; left: 0px; will-change: transform;">
+                <a class="dropdown-item" href="#">Default speaker</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-4 col-lg-3 order-3 order-lg-3 text-right text-lg-right">
+          <button id="button-meeting-leave" type="button" class="btn btn-outline-success mx-1 mx-xl-2 my-2 px-4"
+            title="Leave meeting">
+            ${require('../node_modules/open-iconic/svg/account-logout.svg').default}
+          </button>
+          <button id="button-meeting-end" type="button" class="btn btn-outline-danger mx-1 mx-xl-2 my-2 px-4"
+            title="End meeting">
+            ${require('../node_modules/open-iconic/svg/power-standby.svg').default}
+          </button>
+        </div>
+
+        <div id="tile-container" class="col-12 col-sm-6 col-md-7 col-lg-8 my-4 my-sm-0 h-100"
+          style="overflow-y: scroll">
+          <div id="tile-area" class="v-grid">
+            <div id="tile-0" class="video-tile">
+              <video id="video-0" class="video-tile-video"></video>
+            </div>
+            <div id="tile-1" class="video-tile">
+              <video id="video-1" class="video-tile-video"></video>
+            </div>
+            <div id="tile-2" class="video-tile">
+              <video id="video-2" class="video-tile-video"></video>
+            </div>
+            <div id="tile-3" class="video-tile">
+              <video id="video-3" class="video-tile-video"></video>
+            </div>
+            <div id="tile-4" class="video-tile">
+              <video id="video-4" class="video-tile-video"></video>
+            </div>
+            <div id="tile-5" class="video-tile">
+              <video id="video-5" class="video-tile-video"></video>
+            </div>
+            <div id="tile-6" class="video-tile">
+              <video id="video-6" class="video-tile-video"></video>
+            </div>
+            <div id="tile-7" class="video-tile">
+              <video id="video-7" class="video-tile-video"></video>
+            </div>
+            <div id="tile-8" class="video-tile">
+              <video id="video-8" class="video-tile-video"></video>
+            </div>
+            <div id="tile-9" class="video-tile">
+              <video id="video-8" class="video-tile-video"></video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- <script src="./bundle.js"></script> -->

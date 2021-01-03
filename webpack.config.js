@@ -39,7 +39,7 @@ module.exports = env => {
           loader: 'ts-loader',
         },
         {
-          test: /\.css$/,
+          test: /\.(scss)$/,
           use: [{
             loader: 'style-loader',
             options: {
@@ -57,6 +57,8 @@ module.exports = env => {
                 ];
               },
             },
+          }, {
+            loader: 'sass-loader',
           }]
         },
       ],

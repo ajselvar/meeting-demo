@@ -36,20 +36,21 @@
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
-    "@types/uuid": "^8.3.0",
-    "express": "^4.17.1",
-    "node-fetch": "^2.6.1",
-    "typescript": "^3.7.5",
-    "uuid": "^8.3.1",
-    "amazon-chime-sdk-js": "^2.1.0",
     "@types/aws-sdk": "^2.7.0",
+    "@types/uuid": "^8.3.0",
+    "amazon-chime-sdk-js": "^2.1.0",
     "aws-sdk": "^2.781.0",
     "bootstrap": "^4.5.2",
     "compression": "^1.7.4",
+    "express": "^4.17.1",
+    "google-libphonenumber": "^3.2.8",
     "jquery": "^3.5.1",
     "lodash": "^4.17.20",
+    "node-fetch": "^2.6.1",
     "popper.js": "^1.15.0",
-    "google-libphonenumber": "^3.2.8"
+    "scss-loader": "0.0.1",
+    "typescript": "^3.7.5",
+    "uuid": "^8.3.1"
   },
   "license": "Apache-2.0"
 }
